@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 16px;
+}
+
+header{
+    text-align: center;
+}
+header nav ul{
+    display: flex;
+    justify-content: space-around;
+}
+header nav li{
+    display: inline;
+    width: 100%;
+    padding: 16px 0;
+    font-size: 24px;
+    background-color: blue;
+    color: aliceblue;
+}
+header h1{
+    padding: 38px;
+}
+
+.container{
+    max-width: 740px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+
+table{
+    width: 100%;
+    margin-top: 24px;
+}
+table th{
+    padding: 12px;
+    border-bottom: 2px solid black;
+}
+table tr{
+    text-align: center;
+    padding: 8px;
+}
+table td{
+    padding: 8px 0;
+}
+
+.contatos_tarefas{
+    display: flex;
+    width: 200%;
+}
+.contatos{
+    width: 100%;
+}
+.tarefas{
+    width: 100%;
+    text-align: center;
+    background-color: aquamarine;
+}
+
+.input_itens{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+#nome{
+    width: 100%;
+}
+#telefone{
+    width: 34%;
+}
+#e_mail{
+    width: 65%;
+}
+
+input, button{
+    padding: 8px;
+    margin: 4px 0;
+}
+
+.btn{
+    display: flex;
+    justify-content: flex-end;
+}
+button{
+    border: none;
+    margin-left: 8px;
+    width: 110px;
+}
