@@ -1,49 +1,192 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+/*#### GLOBAL ####*/
 *{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-
     font-family: "Open Sans", sans-serif;
-    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style:normal;
+    font-size: 18px;
+}
+.container{
+    max-width: 740px;
+    margin: 0 auto;
+    overflow: hidden;
+}
+input{
+    font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-style: normal;
-    font-size: 16px;
+    font-size: 18px; 
+}
+button{
+    padding: 8px;
+    border: none;
+    transition: all .2s ease-in-out;
+    margin: 16px 0px 0px 8px;
+    width: 120px;
+    background-color: #575757;
+    color: #FFFFFF;
+    cursor: pointer;
+}
+button:hover{
+    background-color: #ffa374;
+    color: black;
+    scale: 1.05;
 }
 
+img{
+    height: 24px;
+    margin-bottom: -6px;
+}
+
+
+/*#### HEADER / CABEÇALHO ####*/
 header{
     text-align: center;
 }
 header nav ul{
     display: flex;
     justify-content: space-around;
+    padding: 0;
+    margin: 0;
 }
 header nav li{
     display: inline;
     width: 100%;
     padding: 16px 0;
     font-size: 24px;
-    background-color: blue;
+    background-color: #464646;
     color: aliceblue;
+    transition: all .2s ease;
+}
+header nav li:hover{
+    background-color: #ffa374;
+    color: black;
+    cursor: default;
 }
 header h1{
     padding: 38px;
 }
 
-.container{
-    max-width: 740px;
-    margin: 0 auto;
-    overflow: hidden;
+
+/*#### CONTATOS E TAREFAS ####*/
+.contatos_tarefas{
+    display: flex;
+    width: 200%;
+    margin-bottom: 100px;
+    transition: all .2s ease;
 }
 
+
+
+/*#### CONTATOS ####*/
+.contatos{
+    width: 100%;
+}
+
+/*#### FORMULARIO CONTATO ####*/
+#formulario_contatos{
+    background-color: antiquewhite;
+    padding: 16px;
+    margin: 8px auto;
+}
+#formulario_contatos h2{
+    font-family: "Noto Serif", serif;
+    font-weight: 400;
+    font-style: normal;
+    margin: 8px 0 16px 0;
+}
+
+.inputbox{
+    position: relative;
+    width: 100%;
+}
+.inputbox label{
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: grey;
+    transition: .2s ease-in-out;
+}
+input:focus ~ label, 
+input:focus ~ :valid{
+    top: 5%;
+    opacity: 0;
+}
+.inputbox input{
+    position: relative;
+    width: 100%;
+    height: 42px;
+    background: transparent;
+    outline: none;
+    border: none;
+    border-bottom: 2px solid #dd7a00;
+}
+.inputbox img{
+    position: absolute;
+    height: 24px;
+    right: 8px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.btn{
+    display: flex;
+    justify-content: flex-end;
+}
+
+
+/*#### FILTRO DA TABELA ####*/
+
+.contatos nav ul{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #575757;
+    padding: 0;
+    margin: 0;
+}
+.contatos ul span{
+    padding: 0 48px;
+    background-color: #ffa374;
+}
+.contatos ul h2{
+    color: black;
+    font-weight: 600;
+}
+.contatos nav ul li{
+    display: inline;
+    margin-right: 28px;
+    color: white; 
+}
+.contatos_tarefas nav label, select, option{
+    font-size: 16px;
+    margin-left: 8px;
+}
+
+
+
+/*#### TABELA ####*/
 table{
     width: 100%;
-    margin-top: 24px;
+    background-color: white;
+}
+table a{
+    text-decoration: none;
+}
+table img{
+    height: 20px;
+    margin-bottom: -4px;
+    transition: all .2s ease;
+}
+table img:hover{
+    scale: 1.2;
 }
 table th{
     padding: 12px;
     border-bottom: 2px solid black;
+    background-color: antiquewhite;
+    font-weight: 600;
 }
 table tr{
     text-align: center;
@@ -51,47 +194,28 @@ table tr{
 }
 table td{
     padding: 8px 0;
+    border-bottom: 1px solid black;
 }
 
-.contatos_tarefas{
+.tabeta_alinhada{
     display: flex;
-    width: 200%;
+    flex-wrap: nowrap;
+    justify-content: space-around;
 }
-.contatos{
-    width: 100%;
-}
+
+
+
+
+
+
+/*#### TAREFAS ####*/
 .tarefas{
     width: 100%;
     text-align: center;
     background-color: aquamarine;
 }
 
-.input_itens{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-}
-#nome{
-    width: 100%;
-}
-#telefone{
-    width: 34%;
-}
-#e_mail{
-    width: 65%;
-}
 
-input, button{
-    padding: 8px;
-    margin: 4px 0;
-}
-
-.btn{
-    display: flex;
-    justify-content: flex-end;
-}
-button{
-    border: none;
-    margin-left: 8px;
-    width: 110px;
+.trocar{
+    margin-left: -100%;
 }
