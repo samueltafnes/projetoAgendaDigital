@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Serif:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Noto+Sans:ital,wght@0,100..900;1,100..900&family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
 /*#### GLOBAL ####*/
-*{
+*, imput{
     font-family: "Open Sans", sans-serif;
     font-weight: 400;
     font-style:normal;
@@ -10,12 +11,6 @@
     max-width: 740px;
     margin: 0 auto;
     overflow: hidden;
-}
-input{
-    font-family: "Open Sans", sans-serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: 18px; 
 }
 button{
     padding: 8px;
@@ -32,7 +27,6 @@ button:hover{
     color: black;
     scale: 1.05;
 }
-
 img{
     height: 24px;
     margin-bottom: -6px;
@@ -43,6 +37,27 @@ img{
 header{
     text-align: center;
 }
+header span{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #464646;
+    margin: 8px 0;
+}
+header h1{
+    color: antiquewhite;
+    font-family: "Lobster", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 48px;
+
+}
+header img{
+    height: 48px;
+    margin-right: 12px;
+    filter: invert(80%);
+}
+
 header nav ul{
     display: flex;
     justify-content: space-around;
@@ -63,8 +78,10 @@ header nav li:hover{
     color: black;
     cursor: default;
 }
-header h1{
-    padding: 38px;
+.guia_ativa{
+    background-color: #ffa374;
+    color: black;
+    cursor: default;
 }
 
 
@@ -77,10 +94,10 @@ header h1{
 }
 
 
-
 /*#### CONTATOS ####*/
 .contatos{
     width: 100%;
+    overflow-x: hidden;
 }
 
 /*#### FORMULARIO CONTATO ####*/
@@ -108,11 +125,18 @@ header h1{
     color: grey;
     transition: .2s ease-in-out;
 }
+
 input:focus ~ label, 
-input:focus ~ :valid{
+#nome:valid ~ label, 
+#telefone:valid ~ label{
     top: 5%;
     opacity: 0;
 }
+#e_mail:invalid ~ label{
+    top: 5%;
+    opacity: 0;
+}
+
 .inputbox input{
     position: relative;
     width: 100%;
@@ -140,14 +164,17 @@ input:focus ~ :valid{
 
 .contatos nav ul{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    align-items: flex-end;
     background-color: #575757;
     padding: 0;
     margin: 0;
 }
 .contatos ul span{
-    padding: 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
     background-color: #ffa374;
 }
 .contatos ul h2{
@@ -156,20 +183,29 @@ input:focus ~ :valid{
 }
 .contatos nav ul li{
     display: inline;
-    margin-right: 28px;
+    margin: 6px 16px;
     color: white; 
 }
+.contatos nav img{
+    margin: 0px 8px 0px 0px;
+}
+
 .contatos_tarefas nav label, select, option{
     font-size: 16px;
-    margin-left: 8px;
+    padding: 0px 8px;
 }
 
 
 
 /*#### TABELA ####*/
+.containerTabela{
+    overflow-x: auto;
+}
+
 table{
     width: 100%;
     background-color: white;
+
 }
 table a{
     text-decoration: none;
@@ -213,6 +249,7 @@ table td{
     width: 100%;
     text-align: center;
     background-color: aquamarine;
+    margin: 8px 0;
 }
 
 
