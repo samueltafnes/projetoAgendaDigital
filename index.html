@@ -38,20 +38,20 @@
                 
                         <div class="add_contato">
                             <div class="inputbox">
-                                <img src="./images/person.svg" alt="Opções">
+                                <img src="./images/person.svg" alt="Nome">
                                 <input id="nome" type="text" required>
-                                <label for="nome">Nome</label>
+                                <label for="nome">Nome e Sobrenome</label>
                             </div>
                             
                             <div class="inputbox">
                                 <img src="./images/call.svg" alt="Telefone">
-                                <input id="telefone" type="text" maxlength="11" onkeypress="formatar('##-####-####', this)" required>
+                                <input id="telefone" type="tel" maxlength="11" required>
                                 <label for="telefone">Telefone Fixo ou Celular</label>
                             </div>
                             
                             <div class="inputbox">
                                 <img src="./images/mail.svg" alt="E-mail">
-                                <input id="e_mail" type="email">
+                                <input id="e_mail" type="email" placeholder=" ">
                                 <label for="e_mail">E-mail (Opcional)</label>
                             </div> 
                         </div>
@@ -81,13 +81,13 @@
                     </nav>
     
                     <div class="containerTabela">
-                        <table cellspacing="0">
+                        <table cellspacing="0" id="tabela_contatos">
                             <thead>
                                 <tr>
                                     <th>Nome</th>
                                     <th>Telefone</th>
                                     <th>E-mail</th>
-                                    <th>Opções</th>
+                                    <th>Ações</th>
                                 </tr>
                             </thead>
         
@@ -106,9 +106,10 @@
                                         <a href="#" title="Enviar um e-mail">
                                             <img src="./images/mail.svg" alt="Enviar e-mail">
                                         </a>
-                                        <a href="#" title="Apagar contato">
-                                            <img src="./images/excluir.svg" alt="Apagar contato">
-                                        </a>
+                                        <span>
+                                            <img class="removerContato" src="./images/excluir.svg" alt="Apagar contato" title="Remover contato">
+                                        </span>
+                                        
                                     </td>
                                 </tr>
                                 <tr>
@@ -141,6 +142,12 @@
                 </div>
     
                 <div class="tarefas">
+                    <header>
+                        <h2>HEADER</h2>
+                    </header>
+                    <div class="container">
+                        <h2>CONTAINER</h2>
+                    </div>
                     <h1>Lista de tarefas</h1>
                 </div>
 
