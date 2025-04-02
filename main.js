@@ -14,8 +14,7 @@ const imgExcluir = `<img class="removerContato" src="./images/excluir.svg" alt="
 const form_contatos = document.getElementById('formulario_contatos');
 const tabela = document.querySelector("#tabela_contatos");
 
-var linhas = '';
-
+var lista_de_contatos = [];
 
 form_contatos.addEventListener('submit', function(e){
     e.preventDefault();
@@ -23,6 +22,8 @@ form_contatos.addEventListener('submit', function(e){
     prepararLinha();
     adicionarLinha();
 })
+
+
 tabela.addEventListener('click', function(evento){
     var btnRemoverClicado = evento.target;
 
@@ -30,9 +31,12 @@ tabela.addEventListener('click', function(evento){
         var celula = btnRemoverClicado.parentNode;
         var conjuntoOpcoes = celula.parentNode;
         var linhaSelecionada = conjuntoOpcoes.parentNode;
+        
         linhaSelecionada.remove();
+        lista_de_contatos.splice(lista_de_contatos.indexOf(linhaSelecionada.outerHTML), 1);
     }
 })
+
 
 function prepararLinha(){
     const nomeContato = document.getElementById('nome');
@@ -44,9 +48,9 @@ function prepararLinha(){
     linha += `<td> ${telefoneContato.value} </td>`
     linha += `<td> ${mailContato.value} </td>`
     linha += prepararOpcoes(telefoneContato.value, mailContato.value);
-    linha += `<tr>` 
+    linha += `</tr>` 
 
-    linhas += linha;
+    lista_de_contatos.push(linha);
 
     nomeContato.value = '';
     telefoneContato.value = '';
@@ -70,9 +74,8 @@ function prepararOpcoes(telefone, email){
 
 function adicionarLinha(){
     const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = linhas;
+    corpoTabela.innerHTML = lista_de_contatos.join("");
 }
-
 
 
 function validarNome(nomeContato){

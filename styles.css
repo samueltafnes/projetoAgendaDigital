@@ -220,11 +220,10 @@ input:focus ~ label,
 table{
     width: 100%;
     background-color: white;
-
 }
 table a, span{
     text-decoration: none;
-    margin: 0 4px;
+    margin: 0;
     cursor: pointer;
 }
 table img{
@@ -249,29 +248,31 @@ table td{
     padding: 8px;
     border-bottom: 1px solid black;
 }
-
-.tabeta_alinhada{
+.tabela_alinhada{
     display: flex;
     flex-wrap: nowrap;
-    justify-content: space-around;
+    justify-content: center;
+}
+table tr, table td{
+    transition: all .2s ease;
 }
 
 
 
-.cor{
-    background-color: red;
-}
 
 
 /*#### TAREFAS ####*/
-.tarefas{
+#tarefas{
     width: 100%;
     text-align: center;
     background-color: aquamarine;
     margin: 8px 0;
 }
-
-
 .trocar{
     margin-left: -100%;
+}
+
+.addTarefa{
+    border: 2px solid red;
+    padding: 8px;
 }
