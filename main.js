@@ -33,11 +33,9 @@ form_contatos.addEventListener('submit', function(e){
     const telefoneContato = document.getElementById('telefone');
     const mailContato = document.getElementById('e_mail');
 
-    if (validarNome(nomeContato.value) && validarTelefone(telefoneContato.value)){
-        prepararLinha(nomeContato.value, telefoneContato.value, mailContato.value);
-        adicionarContato();
-        atualizarTabela();
-    }
+    prepararLinha(nomeContato.value, telefoneContato.value, mailContato.value);
+    adicionarContato();
+    atualizarTabela();
     
     nomeContato.value = '';
     telefoneContato.value = '';
