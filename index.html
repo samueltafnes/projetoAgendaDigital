@@ -30,7 +30,8 @@
             <div class="contatos_tarefas">
                 <div class="contatos">
     
-                    <form id="formulario_contatos">
+                    <form id="formulario_contatos"><data value=""></data>
+                        <span id="alerta">Informe um nome e sobrenome para continuar.</span>
                         <h2>
                             <img src="./images/add.svg" alt="Adicione um novo contato">
                             Adicione um contato:
@@ -45,7 +46,7 @@
                             
                             <div class="inputbox">
                                 <img src="./images/call.svg" alt="Telefone">
-                                <input id="telefone" type="tel" maxlength="11" required>
+                                <input id="telefone" type="tel" maxlength="11" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
                                 <label for="telefone">Telefone Fixo ou Celular</label>
                             </div>
                             
@@ -81,7 +82,7 @@
                     </nav>
     
                     <div class="containerTabela">
-                        <table cellspacing="0" id="tabela_contatos">
+                        <table id="tabela_contatos">
                             <thead>
                                 <tr>
                                     <th>Nome</th>

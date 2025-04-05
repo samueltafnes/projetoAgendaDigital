@@ -104,9 +104,45 @@ header nav li:hover{
 /*#### FORMULARIO CONTATO ####*/
 #formulario_contatos{
     background-color: antiquewhite;
-    padding: 16px;
+    padding: 16px 24px;
     margin: 8px auto;
+    position: relative;
 }
+
+#alerta{
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    padding: 8px;
+    background-color: lightcoral;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: max-content;
+    max-width: 90%;
+    opacity: 0;
+    display: none;  
+}
+
+.slide{
+    display: block;
+    animation-name: slide_in;
+    animation-duration: 0.4s;
+    animation-fill-mode: forwards;
+}
+@keyframes slide_in {
+    from {
+        top: -20px;
+        opacity: 0;   
+    }
+    to {
+        top: 10px;
+        opacity: 1;
+    }
+}
+
+
 #formulario_contatos h2{
     font-family: "Noto Serif", serif;
     font-weight: 400;
@@ -220,6 +256,7 @@ input:focus ~ label,
 table{
     width: 100%;
     background-color: white;
+    border-spacing: 0;
 }
 table a, span{
     text-decoration: none;

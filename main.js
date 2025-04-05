@@ -1,4 +1,3 @@
-
 /* ======= Alterar Guias ======= */
 const trocar_guia = document.querySelector('.contatos_tarefas');
 const guia_contatos = document.querySelector('.guia_contatos');
@@ -13,14 +12,36 @@ const imgExcluir = `<img class="removerContato" src="./images/excluir.svg" alt="
 /* ======= Formulário e Tabela ======= */
 const form_contatos = document.getElementById('formulario_contatos');
 const tabela = document.querySelector("#tabela_contatos");
+const corpoTabela = document.querySelector('tbody');
+const alerta = document.getElementById('#alerta');
 
+/* ======= Filtro da Tabela ======= */
+const filtro = document.querySelector('#filtro');
+filtro.addEventListener('change', function(){
+    atualizarTabela();
+})
+
+const inputTelefone = document.querySelector('#telefone');
+var linha;
 var lista_de_contatos = [];
+
 
 form_contatos.addEventListener('submit', function(e){
     e.preventDefault();
 
-    prepararLinha();
-    adicionarLinha();
+    const nomeContato = document.getElementById('nome');
+    const telefoneContato = document.getElementById('telefone');
+    const mailContato = document.getElementById('e_mail');
+
+    if (validarNome(nomeContato.value) && validarTelefone(telefoneContato.value)){
+        prepararLinha(nomeContato.value, telefoneContato.value, mailContato.value);
+        adicionarContato();
+        atualizarTabela();
+    }
+    
+    nomeContato.value = '';
+    telefoneContato.value = '';
+    mailContato.value = '';
 })
 
 
@@ -38,62 +59,94 @@ tabela.addEventListener('click', function(evento){
 })
 
 
-function prepararLinha(){
-    const nomeContato = document.getElementById('nome');
-    const telefoneContato = document.getElementById('telefone');
-    const mailContato = document.getElementById('e_mail');
-
-    let linha = `<tr>`;
-    linha += `<td> ${nomeContato.value} </td>`;
-    linha += `<td> ${telefoneContato.value} </td>`
-    linha += `<td> ${mailContato.value} </td>`
-    linha += prepararOpcoes(telefoneContato.value, mailContato.value);
+function prepararLinha(nome, telefone, email){
+    linha = `<tr>`;
+    linha += `<td> ${nome} </td>`;
+    linha += `<td> ${telefone} </td>`
+    linha += `<td> ${email} </td>`
+    linha += prepararOpcoes(telefone, email);
     linha += `</tr>` 
-
-    lista_de_contatos.push(linha);
-
-    nomeContato.value = '';
-    telefoneContato.value = '';
-    mailContato.value = '';
 }
 
 function prepararOpcoes(telefone, email){
-    let opcao = `<td class="tabela_alinhada">`;
-    opcao += `<a href="tel:${telefone}" title="Ligar para este contato"> ${imgTelefone} </a>`;
+    let opcoes = `<td class="tabela_alinhada">`;
+    opcoes += `<a href="tel:${telefone}" title="Ligar para este contato"> ${imgTelefone} </a>`;
     if (telefone.length > 10){
-        opcao += `<a href="http://wa.me/${telefone}" title="Entrar em contato pelo WhatsApp" target="blank"> ${imgWhatsapp} </a>`;
+        opcoes += `<a href="http://wa.me/+55${telefone}" title="Entrar em contato pelo WhatsApp" target="blank"> ${imgWhatsapp} </a>`;
     }
     if (email != ""){
-        opcao += `<a href="mailto:${email}" title="Enviar um E-mail"> ${imgEmail} </a>`;
+        opcoes += `<a href="mailto:${email}" title="Enviar um E-mail"> ${imgEmail} </a>`;
     }
-    opcao += `<span> ${imgExcluir} </span>`;
-    opcao += `</td>`;
+    opcoes += `<span> ${imgExcluir} </span>`;
+    opcoes += `</td>`;
 
-    return opcao;
+    return opcoes;
 }
 
-function adicionarLinha(){
-    const corpoTabela = document.querySelector('tbody');
-    corpoTabela.innerHTML = lista_de_contatos.join("");
+function adicionarContato(){
+    lista_de_contatos.push(linha);
+}
+
+function atualizarTabela(){
+    if(filtro.value == 'Mais recente'){
+        corpoTabela.innerHTML = lista_de_contatos.slice(0, lista_de_contatos.length).reverse().join("");
+    }
+    else if(filtro.value == 'Nome'){
+        corpoTabela.innerHTML = lista_de_contatos.slice(0, lista_de_contatos.length).sort().join("");
+    }
+    else{
+        corpoTabela.innerHTML = lista_de_contatos.slice(0, lista_de_contatos.length).join("");
+    }
 }
 
 
-function validarNome(nomeContato){
-    const nomeDividido = nomeContato.split(' ');
-    return nomeDividido >= 2;
+
+
+
+
+function validarNome(nome){
+    const nomeDividido = nome.split(' ');
+    if (nomeDividido >= 2){
+        return true;
+    }else{
+        exibirAlerta('nome');
+        return false;
+    }
+        
 }
+
+function validarTelefone(telefone){
+    if (telefone >= 10){
+        return true;
+    }else{
+        exibirAlerta('telefone');
+        return false;
+    }
+}
+
+function exibirAlerta(campo){
+    const tipoInput = {
+        'nome': 'Informe um nome e sobrenome para continuar!',
+        'telefone': 'Digite um numero válido com o DDD para continuar!'
+    };
+    console.log(tipoInput[campo] || 'Primeiro preencha os campos Nome e Telefone para adicionar um contato!');
+    alerta.classList.add('.slide');
+}
+
 
 
 function switch_contacts(){
-    console.log("voce clicou em contacts!");
     guia_contatos.classList.add('guia_ativa');
     guia_tarefas.classList.remove('guia_ativa');
     trocar_guia.classList.remove('trocar');
 }
 
 function switch_tasks(){
-    console.log("voce clicou em tasks!"); 
     guia_tarefas.classList.add('guia_ativa'); 
     guia_contatos.classList.remove('guia_ativa');
     trocar_guia.classList.add('trocar');
 }
+
+
+
+
