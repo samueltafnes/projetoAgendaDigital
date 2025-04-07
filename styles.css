@@ -11,6 +11,7 @@
     max-width: 740px;
     margin: 0 auto;
     overflow: hidden;
+    position: relative;
 }
 button{
     padding: 8px;
@@ -32,10 +33,10 @@ img{
     margin-bottom: -6px;
 }
 
-
 /*#### HEADER / CABEÇALHO ####*/
 header{
     text-align: center;
+    position: relative;
 }
 header span{
     display: flex;
@@ -59,41 +60,42 @@ header img{
     filter: invert(80%);
 }
 
-header nav ul{
-    display: flex;
-    justify-content: space-around;
-    padding: 0;
-    margin: 0;
+#notificacao{
+    position: absolute;
+    left: 50%;
+    top: -20px;
+    transform: translateX(-50%);
+    padding: 8px;
+    font-size: 18px;
+    background-color: lightcoral;
+    color: white;
+    border-radius: 5px;
+    text-align: center;
+    width: max-content;
+    max-width: 80%;
+    opacity: 0;
 }
-header nav li{
-    display: inline;
-    width: 100%;
-    padding: 16px 0;
-    font-size: 24px;
-    background-color: #464646;
-    color: aliceblue;
-    transition: all .2s ease;
+@keyframes slide_in {
+    0% {
+        top: -20px;
+        opacity: 0;   
+    }
+    10% {
+        top: 30px;
+        opacity: 1;
+    }
+    90% {
+        top: 30px;
+        opacity: 1;
+        left: 50%;
+    }
+    100% {
+        top: -20px;
+        opacity: 0;
+        left: 50%;
+        
+    }
 }
-header nav li:hover{
-    background-color: #ffa374;
-    color: black;
-    cursor: default;
-}
-.guia_ativa{
-    background-color: #ffa374;
-    color: black;
-    cursor: default;
-}
-
-
-/*#### CONTATOS E TAREFAS ####*/
-.contatos_tarefas{
-    display: flex;
-    width: 200%;
-    margin-bottom: 100px;
-    transition: all .2s ease;
-}
-
 
 /*#### CONTATOS ####*/
 .contatos{
@@ -106,40 +108,6 @@ header nav li:hover{
     background-color: antiquewhite;
     padding: 16px 24px;
     margin: 8px auto;
-    position: relative;
-}
-
-#alerta{
-    position: absolute;
-    left: 50%;
-    top: -20px;
-    transform: translateX(-50%);
-    padding: 8px;
-    background-color: lightcoral;
-    color: white;
-    border-radius: 5px;
-    text-align: center;
-    width: max-content;
-    max-width: 90%;
-    opacity: 0;
-    display: none;  
-}
-
-.slide{
-    display: block;
-    animation-name: slide_in;
-    animation-duration: 0.4s;
-    animation-fill-mode: forwards;
-}
-@keyframes slide_in {
-    from {
-        top: -20px;
-        opacity: 0;   
-    }
-    to {
-        top: 10px;
-        opacity: 1;
-    }
 }
 
 
@@ -187,7 +155,6 @@ input:focus ~ label,
     opacity: 0;
 }
 
-
 .inputbox input{
     position: relative;
     width: 100%;
@@ -203,6 +170,9 @@ input:focus ~ label,
     right: 8px;
     top: 50%;
     transform: translateY(-50%);
+}
+input.error{
+    border-bottom: 3px solid red;
 }
 
 .btn{
@@ -241,8 +211,8 @@ input:focus ~ label,
     margin: 0px 8px 0px 0px;
 }
 
-.contatos_tarefas nav label, select, option{
-    font-size: 16px;
+.contatos nav label, select, option{
+    font-size: 1rem;
     padding: 0px 8px;
 }
 
@@ -286,30 +256,6 @@ table td{
     border-bottom: 1px solid black;
 }
 .tabela_alinhada{
-    display: flex;
-    flex-wrap: nowrap;
-    justify-content: center;
-}
-table tr, table td{
-    transition: all .2s ease;
+    margin: 4px;
 }
 
-
-
-
-
-/*#### TAREFAS ####*/
-#tarefas{
-    width: 100%;
-    text-align: center;
-    background-color: aquamarine;
-    margin: 8px 0;
-}
-.trocar{
-    margin-left: -100%;
-}
-
-.addTarefa{
-    border: 2px solid red;
-    padding: 8px;
-}

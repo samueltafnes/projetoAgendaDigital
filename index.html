@@ -14,104 +14,93 @@
                 <img src="./images/agenda.svg" alt="Agenda Digital">
                 <h1>Agenda Digital</h1>
             </span>
-            
-
-            <nav>
-                <ul>
-                    <li class="guia_contatos guia_ativa" onclick="switch_contacts()"> Contatos</li>
-                    <li class="guia_tarefas" onclick="switch_tasks()">Tarefas</li>
-                </ul>
-            </nav>
-
+            <span id="notificacao"></span>
         </div>
     </header>
 
-        <div class="container">
-            <div class="contatos_tarefas">
-                <div class="contatos">
-    
-                    <form id="formulario_contatos"><data value=""></data>
-                        <span id="alerta">Informe um nome e sobrenome para continuar.</span>
-                        <h2>
-                            <img src="./images/add.svg" alt="Adicione um novo contato">
-                            Adicione um contato:
-                        </h2>
+    <div class="container">
+        <div class="contatos">
+            <form id="formulario_contatos"><data value=""></data>
+                <h2>
+                    <img src="./images/add.svg" alt="Adicione um novo contato">
+                    Adicione um contato:
+                </h2>
+        
+                <div class="add_contato">
+                    <div class="inputbox">
+                        <img src="./images/person.svg" alt="Nome">
+                        <input id="nome" type="text" required>
+                        <label for="nome">Nome e Sobrenome</label>
+                    </div>
+                    
+                    <div class="inputbox">
+                        <img src="./images/call.svg" alt="Telefone">
+                        <input id="telefone" type="tel" maxlength="11" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
+                        <label for="telefone">Telefone Fixo ou Celular</label>
+                    </div>
+                    
+                    <div class="inputbox">
+                        <img src="./images/mail.svg" alt="E-mail">
+                        <input id="e_mail" type="email" placeholder=" ">
+                        <label for="e_mail">E-mail (Opcional)</label>
+                    </div> 
+                </div>
                 
-                        <div class="add_contato">
-                            <div class="inputbox">
-                                <img src="./images/person.svg" alt="Nome">
-                                <input id="nome" type="text" required>
-                                <label for="nome">Nome e Sobrenome</label>
-                            </div>
-                            
-                            <div class="inputbox">
-                                <img src="./images/call.svg" alt="Telefone">
-                                <input id="telefone" type="tel" maxlength="11" required onkeypress="return event.charCode >= 48 && event.charCode <= 57">
-                                <label for="telefone">Telefone Fixo ou Celular</label>
-                            </div>
-                            
-                            <div class="inputbox">
-                                <img src="./images/mail.svg" alt="E-mail">
-                                <input id="e_mail" type="email" placeholder=" ">
-                                <label for="e_mail">E-mail (Opcional)</label>
-                            </div> 
-                        </div>
-                        
-                        <div class="btn">
-                            <button id="adicionar" type="submit">Adicionar +</button>
-                            <button id="limpar" type="reset">Limpar</button>
-                        </div> 
-                    </form>
+                <div class="btn">
+                    <button id="adicionar" type="submit">Adicionar +</button>
+                    <button id="limpar" type="reset">Limpar</button>
+                </div> 
+            </form>
 
-                    <nav>
-                        <ul>
-                            <span>
-                                <img src="./images/contacts.svg" alt="Lista de contatos">
-                                <h2>SEUS CONTATOS</h2>
-                            </span>
+            <nav>
+                <ul>
+                    <span>
+                        <img src="./images/contacts.svg" alt="Lista de contatos">
+                        <h2>SEUS CONTATOS</h2>
+                    </span>
 
-                            <li>
-                                <label>Filtrar por:</label>
-                                <select id="filtro">
-                                    <option selected>Mais recente</option>
-                                    <option>Mais antigo</option>
-                                    <option>Nome</option>
-                                </select>
-                            </li>
-                        </ul>
-                    </nav>
-    
-                    <div class="containerTabela">
-                        <table id="tabela_contatos">
-                            <thead>
-                                <tr>
-                                    <th>Nome</th>
-                                    <th>Telefone</th>
-                                    <th>E-mail</th>
-                                    <th>Ações</th>
-                                </tr>
-                            </thead>
-        
-                            <tbody>
-                            </tbody>
-        
-                            <tfoot>
-                            </tfoot>
-                        </table>
-                    </div>
-                </div>
-    
-                <div id="tarefas">
-                    <div class="container">
-                        <div class="addTarefa">
-                            <h2>Lista de tarefas</h2>
-                        </div>
-                        <h2>CONTAINER</h2>
-                    </div>
-                </div>
+                    <li>
+                        <label>Filtrar por:</label>
+                        <select id="filtro">
+                            <option selected>Mais recente</option>
+                            <option>Mais antigo</option>
+                            <option>Nome</option>
+                        </select>
+                    </li>
+                </ul>
+            </nav>
 
+            <div class="containerTabela">
+                <table id="tabela_contatos">
+                    <thead>
+                        <tr>
+                            <th>Nome</th>
+                            <th>Telefone</th>
+                            <th>E-mail</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+                        <tr>
+                            <td> Samuel Tafnes </td>
+                            <td> 11940028922 </td>
+                            <td> samuel@email.com </td>
+                            <td class="tabela_alinhada">
+                                <a href="tel:11940028922" title="Ligar para este contato"> <img src="./images/call.svg" alt="Ligar"> </a>
+                                <a href="http://wa.me/+5511940028922" title="Entrar em contato pelo WhatsApp" target="blank"> <img src="./images/whatsapp.svg" alt="Whatsapp"> </a>
+                                <a href="mailto:samuel@email.com" title="Enviar um E-mail"> <img src="./images/mail.svg" alt="Enviar e-mail"></img> </a>
+                                <span> <img class="removerContato" src="./images/excluir.svg" alt="Apagar contato" title="Remover contato"> </span>
+                            </td>
+                        </tr>
+                    </tbody>
+
+                    <tfoot>
+                    </tfoot>
+                </table>
             </div>
         </div>
+    </div>
 
 <script src="./main.js"></script>
 </body>
